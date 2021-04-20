@@ -1,0 +1,52 @@
+{
+  "name": "heyokaysaturday/test_profile",
+  "description": "Open Social is a distribution for building social communities and intranets.",
+  "type": "drupal-profile",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "scripts": {
+    "post-install-cmd": [
+      "@composer drupal:scaffold"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "Drupal\\social\\Behat\\": "tests/behat/features/bootstrap",
+      "Drupal\\social\\": "src"
+    }
+  },
+  "extra": {
+    "enable-patching": true,
+    "patches": {
+      "drupal/core": {
+        "Color module html preview optional": "https://www.drupal.org/files/issues/color-optional-html-preview-2844190-2.patch",
+        "Restrict images to this site blocks image style derivatives": "https://www.drupal.org/files/issues/2018-10-26/2528214-47.patch",
+        "Optimize getCommentedEntity()": "https://www.drupal.org/files/issues/2018-12-28/2580551-72.patch"
+      }
+    }
+  },
+  "require": {
+    "cweagans/composer-patches": "^1.6.0",
+    "composer/installers": "~1.0 || ~2.0",
+    "oomphinc/composer-installers-extender": "~1.0 || ~2.0",
+    "drupal/admin_toolbar": "1.27",
+    "drupal/block_field": "1.0-alpha8",
+    "drupal/paragraphs": "1.11",
+    "drupal/token": "1.5"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "~0.6 || ~0.7",
+    "drupal/coder": "8.3.11"
+  }
+}

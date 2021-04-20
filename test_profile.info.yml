@@ -1,0 +1,24 @@
+name: Test Profile
+type: profile
+description: 'Test Profile install profile.'
+core_version_requirement: ^8.8 || ^9
+# version: '10.0.6'
+# project: social
+
+# Dependencies that Open Social can not live without.
+dependencies:
+  # core
+  - drupal:breakpoint
+  - drupal:color
+  - drupal:config
+  - drupal:node
+  - drupal:user
+  - drupal:views
+  # Contrib
+  - paragraphs:paragraphs
+  - admin_toolbar:admin_toolbar
+
+themes:
+  - seven
+distribution:
+  name: Test Profile
